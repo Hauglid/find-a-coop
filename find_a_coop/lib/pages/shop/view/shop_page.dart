@@ -1,8 +1,9 @@
+import 'package:coopx_design_system/hauglid_design_system.dart';
 import 'package:find_a_coop/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
-class FindACoopPage extends StatelessWidget {
-  const FindACoopPage({super.key});
+class ShopPage extends StatelessWidget {
+  const ShopPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +24,16 @@ class FindACoopPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('I am a text button'),
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: const [
+                  AButton(
+                    title: 'I am a Coop button',
+                    busy: true,
                   ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('I am elevated'),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {},
-                    child: const Text('I am a button'),
-                  ),
+                  Whitespace.height(PaddingSize.large),
+                  AButton.outline(title: 'A am coop outline'),
+                  Whitespace.height(PaddingSize.large),
+                  Whitespace.height(PaddingSize.large),
                 ],
               ),
             ),

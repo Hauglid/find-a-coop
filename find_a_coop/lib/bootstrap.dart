@@ -9,7 +9,9 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:find_a_coop/core/router/my_router.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -32,7 +34,13 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = AppBlocObserver();
   await runZonedGuarded(
     () async {
-      runApp(await builder());
+      runApp(
+        Provider(
+          lazy: false,
+          create: (BuildContext createContext) => MyRouter(),
+          child: await builder(),
+        ),
+      );
     },
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );

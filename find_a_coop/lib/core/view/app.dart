@@ -1,6 +1,7 @@
-import 'package:find_a_coop/find_a_coop/view/find_a_coop_page.dart';
+import 'package:find_a_coop/core/router/my_router.dart';
 import 'package:find_a_coop/l10n/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class App extends StatelessWidget {
@@ -8,7 +9,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final router = context.read<MyRouter>().router;
+
+    return MaterialApp.router(
+      routerDelegate: router.routerDelegate,
+      routeInformationParser: router.routeInformationParser,
+      routeInformationProvider: router.routeInformationProvider,
       theme: themeData(Brightness.light),
       darkTheme: themeData(Brightness.dark),
       localizationsDelegates: const [
@@ -16,7 +22,6 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const FindACoopPage(),
     );
   }
 }
