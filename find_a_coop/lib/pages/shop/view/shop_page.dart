@@ -2,8 +2,8 @@ import 'package:coopx_design_system/hauglid_design_system.dart';
 import 'package:find_a_coop/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
-class ShopPage extends StatelessWidget {
-  const ShopPage({super.key});
+class StorePage extends StatelessWidget {
+  const StorePage({super.key});
 
   @override
   Widget build(BuildContext context) {

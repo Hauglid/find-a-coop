@@ -10,6 +10,7 @@ dependencies:
   bloc: ^8.0.3
   coopx_design_system:
     path: ../coopx_design_system/
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1

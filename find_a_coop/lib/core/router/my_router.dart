@@ -34,7 +34,7 @@ class MyRouter {
             pageBuilder: (context, state) {
               return MaterialPage<void>(
                 key: state.pageKey,
-                child: const ShopPage(),
+                child: const StorePage(),
               );
             },
           ),

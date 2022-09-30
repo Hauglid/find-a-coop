@@ -1,45 +1,56 @@
-import 'package:coopx_design_system/hauglid_design_system.dart';
-import 'package:find_a_coop/l10n/l10n.dart';
+import 'package:find_a_coop/pages/find_a_coop/cubit/shop_cubit.dart';
+import 'package:find_a_coop/pages/find_a_coop/view/find_a_coop_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FindACoopPage extends StatelessWidget {
   const FindACoopPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
-
-    return Scaffold(
-      appBar: AppBar(title: Text(l10n.findACoopAppBarTitle)),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.lightbulb),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          Card(
-            elevation: 1,
-            shadowColor: Colors.transparent,
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: const [
-                  AButton(
-                    title: 'I am a Coop button',
-                    busy: true,
-                  ),
-                  Whitespace.height(PaddingSize.large),
-                  AButton.outline(title: 'A am coop outline'),
-                  Whitespace.height(PaddingSize.large),
-                  Whitespace.height(PaddingSize.large),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
+    return BlocProvider(
+      create: (context) => StoreCubit(),
+      child: const _FindACoopPage(),
     );
+  }
+}
+
+class _FindACoopPage extends StatefulWidget {
+  const _FindACoopPage();
+
+  @override
+  State<_FindACoopPage> createState() => FindACoopPageState();
+}
+
+class FindACoopPageState extends State<_FindACoopPage> {
+  TextEditingController searchTextEditingController = TextEditingController();
+  bool searchIsEmpty = true;
+
+  @override
+  void initState() {
+    super.initState();
+    searchTextEditingController.addListener(updateSearchState);
+    context.read<StoreCubit>().getAllStores();
+  }
+
+  @override
+  void dispose() {
+    searchTextEditingController.removeListener(updateSearchState);
+    super.dispose();
+  }
+
+  void updateSearchState() {
+    final query = searchTextEditingController.value.text;
+    setState(() {
+      searchIsEmpty = query.isEmpty;
+    });
+    if (!searchIsEmpty) {
+      context.read<StoreCubit>().searchForStores(query: query);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FindACoopView(controller: this);
   }
 }

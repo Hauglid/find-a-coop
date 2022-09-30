@@ -28,14 +28,21 @@ mixin _$OpeningHours {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OpeningHoursCopyWith<OpeningHours> get copyWith => throw _privateConstructorUsedError;
+  $OpeningHoursCopyWith<OpeningHours> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $OpeningHoursCopyWith<$Res> {
-  factory $OpeningHoursCopyWith(OpeningHours value, $Res Function(OpeningHours) then) =
+  factory $OpeningHoursCopyWith(
+          OpeningHours value, $Res Function(OpeningHours) then) =
       _$OpeningHoursCopyWithImpl<$Res>;
-  $Res call({String date, String openString, String day, bool closed, bool specialOpeningHours});
+  $Res call(
+      {String date,
+      String openString,
+      String day,
+      bool closed,
+      bool specialOpeningHours});
 }
 
 /// @nodoc
@@ -80,17 +87,26 @@ class _$OpeningHoursCopyWithImpl<$Res> implements $OpeningHoursCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_OpeningHoursCopyWith<$Res> implements $OpeningHoursCopyWith<$Res> {
-  factory _$$_OpeningHoursCopyWith(_$_OpeningHours value, $Res Function(_$_OpeningHours) then) =
+abstract class _$$_OpeningHoursCopyWith<$Res>
+    implements $OpeningHoursCopyWith<$Res> {
+  factory _$$_OpeningHoursCopyWith(
+          _$_OpeningHours value, $Res Function(_$_OpeningHours) then) =
       __$$_OpeningHoursCopyWithImpl<$Res>;
   @override
-  $Res call({String date, String openString, String day, bool closed, bool specialOpeningHours});
+  $Res call(
+      {String date,
+      String openString,
+      String day,
+      bool closed,
+      bool specialOpeningHours});
 }
 
 /// @nodoc
-class __$$_OpeningHoursCopyWithImpl<$Res> extends _$OpeningHoursCopyWithImpl<$Res>
+class __$$_OpeningHoursCopyWithImpl<$Res>
+    extends _$OpeningHoursCopyWithImpl<$Res>
     implements _$$_OpeningHoursCopyWith<$Res> {
-  __$$_OpeningHoursCopyWithImpl(_$_OpeningHours _value, $Res Function(_$_OpeningHours) _then)
+  __$$_OpeningHoursCopyWithImpl(
+      _$_OpeningHours _value, $Res Function(_$_OpeningHours) _then)
       : super(_value, (v) => _then(v as _$_OpeningHours));
 
   @override
@@ -140,7 +156,8 @@ class _$_OpeningHours extends _OpeningHours {
       required this.specialOpeningHours})
       : super._();
 
-  factory _$_OpeningHours.fromJson(Map<String, dynamic> json) => _$$_OpeningHoursFromJson(json);
+  factory _$_OpeningHours.fromJson(Map<String, dynamic> json) =>
+      _$$_OpeningHoursFromJson(json);
 
   @override
   final String date;
@@ -164,10 +181,12 @@ class _$_OpeningHours extends _OpeningHours {
         (other.runtimeType == runtimeType &&
             other is _$_OpeningHours &&
             const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.openString, openString) &&
+            const DeepCollectionEquality()
+                .equals(other.openString, openString) &&
             const DeepCollectionEquality().equals(other.day, day) &&
             const DeepCollectionEquality().equals(other.closed, closed) &&
-            const DeepCollectionEquality().equals(other.specialOpeningHours, specialOpeningHours));
+            const DeepCollectionEquality()
+                .equals(other.specialOpeningHours, specialOpeningHours));
   }
 
   @JsonKey(ignore: true)
@@ -202,7 +221,8 @@ abstract class _OpeningHours extends OpeningHours {
       required final bool specialOpeningHours}) = _$_OpeningHours;
   const _OpeningHours._() : super._();
 
-  factory _OpeningHours.fromJson(Map<String, dynamic> json) = _$_OpeningHours.fromJson;
+  factory _OpeningHours.fromJson(Map<String, dynamic> json) =
+      _$_OpeningHours.fromJson;
 
   @override
   String get date;
@@ -216,5 +236,6 @@ abstract class _OpeningHours extends OpeningHours {
   bool get specialOpeningHours;
   @override
   @JsonKey(ignore: true)
-  _$$_OpeningHoursCopyWith<_$_OpeningHours> get copyWith => throw _privateConstructorUsedError;
+  _$$_OpeningHoursCopyWith<_$_OpeningHours> get copyWith =>
+      throw _privateConstructorUsedError;
 }
