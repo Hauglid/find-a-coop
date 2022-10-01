@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:find_a_coop/api/shop_api.dart';
-import 'package:find_a_coop/models/store.dart';
+import 'package:find_a_coop/features/stores/api/shop_api.dart';
+import 'package:find_a_coop/features/stores/models/store.dart';
 
 part 'shop_state.dart';
 

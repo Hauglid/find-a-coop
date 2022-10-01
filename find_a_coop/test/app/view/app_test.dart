@@ -6,7 +6,7 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:find_a_coop/core/app.dart';
-import 'package:find_a_coop/pages/find_a_coop/view/find_a_coop_page.dart';
+import 'package:find_a_coop/features/stores/stores.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

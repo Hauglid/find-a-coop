@@ -1,5 +1,5 @@
-import 'package:find_a_coop/pages/find_a_coop/cubit/shop_cubit.dart';
-import 'package:find_a_coop/pages/find_a_coop/view/find_a_coop_view.dart';
+import 'package:find_a_coop/features/stores/presentation/find_a_coop/cubit/shop_cubit.dart';
+import 'package:find_a_coop/features/stores/presentation/find_a_coop/view/find_a_coop_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,9 +44,7 @@ class FindACoopPageState extends State<_FindACoopPage> {
     setState(() {
       searchIsEmpty = query.isEmpty;
     });
-    if (!searchIsEmpty) {
-      context.read<StoreCubit>().searchForStores(query: query);
-    }
+    context.read<StoreCubit>().searchForStores(query: query);
   }
 
   @override

@@ -1,5 +1,5 @@
-import 'package:find_a_coop/models/store.dart';
-import 'package:find_a_coop/models/stores_info.dart';
+import 'package:find_a_coop/features/stores/models/store.dart';
+import 'package:find_a_coop/features/stores/models/stores_info.dart';
 import 'package:find_a_coop/services/http_service.dart';
 
 class StoresApi {

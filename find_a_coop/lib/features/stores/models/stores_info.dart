@@ -1,4 +1,4 @@
-import 'package:find_a_coop/models/store.dart';
+import 'package:find_a_coop/features/stores/models/store.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'stores_info.freezed.dart';
 part 'stores_info.g.dart';

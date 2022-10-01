@@ -1,5 +1,5 @@
 import 'package:coopx_design_system/hauglid_design_system.dart';
-import 'package:find_a_coop/models/store.dart';
+import 'package:find_a_coop/features/stores/models/store.dart';
 import 'package:flutter/material.dart';
 
 class StoreList extends StatelessWidget {

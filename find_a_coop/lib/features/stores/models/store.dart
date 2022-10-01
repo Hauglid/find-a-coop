@@ -1,4 +1,4 @@
-import 'package:find_a_coop/models/opening_hours.dart';
+import 'package:find_a_coop/features/stores/models/opening_hours.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'store.freezed.dart';
 part 'store.g.dart';

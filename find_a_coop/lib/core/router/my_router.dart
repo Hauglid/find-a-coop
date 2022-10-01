@@ -1,7 +1,6 @@
+import 'package:find_a_coop/core/missing_route/pages/missing_route_page.dart';
 import 'package:find_a_coop/core/router/routes.dart';
-import 'package:find_a_coop/pages/find_a_coop/view/find_a_coop_page.dart';
-import 'package:find_a_coop/pages/missing_route/pages/missing_route_page.dart';
-import 'package:find_a_coop/pages/shop/shop.dart';
+import 'package:find_a_coop/features/stores/stores.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
