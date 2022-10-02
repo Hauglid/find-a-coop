@@ -32,14 +32,8 @@ class _StorePageState extends State<StorePage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
-
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.findACoopAppBarTitle)),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.lightbulb),
-      ),
+      appBar: AppBar(),
       body: BlocBuilder<StoreCubit, StoreState>(
         builder: (context, state) {
           return state.when(
