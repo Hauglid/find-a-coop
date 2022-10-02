@@ -1,4 +1,4 @@
-import 'package:find_a_coop/features/stores/presentation/find_a_coop/cubit/shop_cubit.dart';
+import 'package:find_a_coop/features/stores/presentation/find_a_coop/cubit/stores_cubit.dart';
 import 'package:find_a_coop/features/stores/presentation/find_a_coop/view/find_a_coop_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +9,7 @@ class FindACoopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => StoreCubit(),
+      create: (context) => StoresCubit(),
       child: const _FindACoopPage(),
     );
   }
@@ -30,12 +30,14 @@ class FindACoopPageState extends State<_FindACoopPage> {
   void initState() {
     super.initState();
     searchTextEditingController.addListener(updateSearchState);
-    context.read<StoreCubit>().getAllStores();
+    context.read<StoresCubit>().getAllStores();
   }
 
   @override
   void dispose() {
-    searchTextEditingController.removeListener(updateSearchState);
+    searchTextEditingController
+      ..removeListener(updateSearchState)
+      ..dispose();
     super.dispose();
   }
 
@@ -44,7 +46,7 @@ class FindACoopPageState extends State<_FindACoopPage> {
     setState(() {
       searchIsEmpty = query.isEmpty;
     });
-    context.read<StoreCubit>().searchForStores(query: query);
+    context.read<StoresCubit>().searchForStores(query: query);
   }
 
   @override

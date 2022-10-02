@@ -20,7 +20,7 @@ class Store with _$Store {
     required String chainId,
     required String chainImage,
     required String city,
-    required String email,
+    String? email,
     required String name,
     required String newspaperUrl,
     required String openingHoursToday,

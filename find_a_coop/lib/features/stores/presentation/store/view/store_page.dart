@@ -1,9 +1,34 @@
-import 'package:coopx_design_system/hauglid_design_system.dart';
+import 'package:find_a_coop/features/stores/models/store.dart';
+import 'package:find_a_coop/features/stores/presentation/store/cubit/store_cubit.dart';
+import 'package:find_a_coop/features/stores/presentation/store/view/widgets/store_information.dart';
 import 'package:find_a_coop/l10n/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class StorePage extends StatelessWidget {
-  const StorePage({super.key});
+class StorePage extends StatefulWidget {
+  const StorePage({required this.store, required this.chain, super.key});
+
+  final String store;
+  final String chain;
+
+  @override
+  State<StorePage> createState() => _StorePageState();
+}
+
+class _StorePageState extends State<StorePage> {
+  @override
+  void initState() {
+    super.initState();
+    final characterCount = widget.store.length;
+
+    final name = widget.store.substring(0, characterCount - 5);
+    final storeId = widget.store.substring(characterCount - 4, characterCount);
+
+    context.read<StoreCubit>().getStore(
+          storeId: storeId,
+          storeName: name,
+        );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,30 +40,14 @@ class StorePage extends StatelessWidget {
         onPressed: () {},
         child: const Icon(Icons.lightbulb),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          Card(
-            elevation: 1,
-            shadowColor: Colors.transparent,
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: const [
-                  AButton(
-                    title: 'I am a Coop button',
-                    busy: true,
-                  ),
-                  Whitespace.height(PaddingSize.large),
-                  AButton.outline(title: 'A am coop outline'),
-                  Whitespace.height(PaddingSize.large),
-                  Whitespace.height(PaddingSize.large),
-                ],
-              ),
-            ),
-          )
-        ],
+      body: BlocBuilder<StoreCubit, StoreState>(
+        builder: (context, state) {
+          return state.when(
+            initial: () => const Center(child: CircularProgressIndicator()),
+            loading: () => const Center(child: CircularProgressIndicator()),
+            success: (Store store) => StoreInformation(store: store),
+          );
+        },
       ),
     );
   }

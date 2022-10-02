@@ -1,20 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:find_a_coop/features/stores/api/shop_api.dart';
+import 'package:find_a_coop/features/stores/api/stores_api.dart';
 import 'package:find_a_coop/features/stores/models/store.dart';
 
-part 'shop_state.dart';
+part 'stores_state.dart';
 
-class StoreCubit extends Cubit<StoreState> {
-  StoreCubit() : super(const StoreState(stores: []));
+class StoresCubit extends Cubit<StoresState> {
+  StoresCubit() : super(const StoresState(stores: []));
 
   Future<void> searchForStores({required String query}) async {
     final stores = await StoresApi.getStoreWithQuery(query: query);
-    emit(StoreState(stores: stores));
+    emit(StoresState(stores: stores));
   }
 
   Future<void> getAllStores() async {
     final stores = await StoresApi.getAllStores();
-    emit(StoreState(stores: stores));
+    emit(StoresState(stores: stores));
   }
 }

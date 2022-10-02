@@ -1,6 +1,8 @@
 import 'package:coopx_design_system/hauglid_design_system.dart';
+import 'package:find_a_coop/core/router/routes.dart';
 import 'package:find_a_coop/features/stores/models/store.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class StoreList extends StatelessWidget {
   const StoreList({
@@ -24,8 +26,13 @@ class StoreList extends StatelessWidget {
             side: BorderSide(color: Theme.of(context).dividerColor),
             borderRadius: BorderRadius.circular(RadiusSize.large),
           ),
-          title: Text(store.name),
+          title: Text('${store.chain} - ${store.name}'),
           subtitle: Text(store.address),
+          onTap: () {
+            final storeName = '${store.name}-${store.storeId}';
+            final path = '/${BaseRoutes.butikker}/${store.chain}/$storeName'.toLowerCase();
+            context.go(path);
+          },
         );
       },
     );

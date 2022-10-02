@@ -35,7 +35,7 @@ mixin _$Store {
   String get chainId => throw _privateConstructorUsedError;
   String get chainImage => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get newspaperUrl => throw _privateConstructorUsedError;
   String get openingHoursToday => throw _privateConstructorUsedError;
@@ -68,7 +68,7 @@ abstract class $StoreCopyWith<$Res> {
       String chainId,
       String chainImage,
       String city,
-      String email,
+      String? email,
       String name,
       String newspaperUrl,
       String openingHoursToday,
@@ -171,7 +171,7 @@ class _$StoreCopyWithImpl<$Res> implements $StoreCopyWith<$Res> {
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -224,7 +224,7 @@ abstract class _$$_StoreCopyWith<$Res> implements $StoreCopyWith<$Res> {
       String chainId,
       String chainImage,
       String city,
-      String email,
+      String? email,
       String name,
       String newspaperUrl,
       String openingHoursToday,
@@ -328,7 +328,7 @@ class __$$_StoreCopyWithImpl<$Res> extends _$StoreCopyWithImpl<$Res>
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -379,7 +379,7 @@ class _$_Store extends _Store {
       required this.chainId,
       required this.chainImage,
       required this.city,
-      required this.email,
+      this.email,
       required this.name,
       required this.newspaperUrl,
       required this.openingHoursToday,
@@ -439,7 +439,7 @@ class _$_Store extends _Store {
   @override
   final String city;
   @override
-  final String email;
+  final String? email;
   @override
   final String name;
   @override
@@ -555,7 +555,7 @@ abstract class _Store extends Store {
       required final String chainId,
       required final String chainImage,
       required final String city,
-      required final String email,
+      final String? email,
       required final String name,
       required final String newspaperUrl,
       required final String openingHoursToday,
@@ -596,7 +596,7 @@ abstract class _Store extends Store {
   @override
   String get city;
   @override
-  String get email;
+  String? get email;
   @override
   String get name;
   @override

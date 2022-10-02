@@ -26,7 +26,7 @@ class MissingRoutePage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () => context.goNamed(BaseRoutes.home),
+                onPressed: () => context.goNamed(BaseRoutes.butikker),
                 child: const Text(
                   'Go home',
                 ),

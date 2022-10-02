@@ -27,7 +27,7 @@ _$_Store _$$_StoreFromJson(Map<String, dynamic> json) => _$_Store(
       chainId: json['ChainId'] as String,
       chainImage: json['ChainImage'] as String,
       city: json['City'] as String,
-      email: json['Email'] as String,
+      email: json['Email'] as String?,
       name: json['Name'] as String,
       newspaperUrl: json['NewspaperUrl'] as String,
       openingHoursToday: json['OpeningHoursToday'] as String,

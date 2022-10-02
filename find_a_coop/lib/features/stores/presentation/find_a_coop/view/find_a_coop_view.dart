@@ -1,5 +1,5 @@
 import 'package:coopx_design_system/hauglid_design_system.dart';
-import 'package:find_a_coop/features/stores/presentation/find_a_coop/cubit/shop_cubit.dart';
+import 'package:find_a_coop/features/stores/presentation/find_a_coop/cubit/stores_cubit.dart';
 import 'package:find_a_coop/features/stores/presentation/find_a_coop/view/widgets/shop_list.dart';
 import 'package:find_a_coop/features/stores/stores.dart';
 import 'package:find_a_coop/l10n/l10n.dart';
@@ -35,7 +35,7 @@ class FindACoopView extends StatelessWidget {
               trailingTapped: controller.searchTextEditingController.clear,
             ),
           ),
-          BlocBuilder<StoreCubit, StoreState>(
+          BlocBuilder<StoresCubit, StoresState>(
             builder: (context, state) {
               return Expanded(child: StoreList(shops: state.stores));
             },

@@ -10,7 +10,14 @@ class StoresApi {
     return getStoreWithQuery(query: '');
   }
 
-  static void getStore({required int storeId}) {}
+  static Future<Store> getStore({required String storeId, required String storeName}) async {
+    final stores = await getStoreWithQuery(query: storeName);
+    final store = stores.firstWhere(
+      (element) => element.storeId == storeId,
+      orElse: () => throw StoreNotFoundException(),
+    );
+    return store;
+  }
 
   static Future<List<Store>> getStoreWithQuery({required String query}) async {
     final response = await _service.get(
@@ -30,5 +37,7 @@ class StoresApi {
 
 mixin StoreEndpoints {
   static String searchStores = '/StoreService/SearchStores';
-  static String cancelInsurance(int insuranceId) => 'insurance/cancel/$insuranceId/';
+  static String store(String storeId) => '/StoreService/SearchStores/$storeId';
 }
+
+class StoreNotFoundException implements Exception {}
