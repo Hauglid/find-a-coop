@@ -10,47 +10,45 @@ class StoreInformation extends StatelessWidget {
 
   final Store store;
 
-  ListTile _mail() {
+  Widget _listTile({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required void Function()? onTap,
+  }) {
     return ListTile(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Text('Mail:'),
-          Text(store.email!),
-        ],
-      ),
+      leading: Icon(icon),
+      trailing: const Icon(Icons.chevron_right),
+      onTap: onTap,
+      title: Text(title),
+      subtitle: Text(subtitle),
+    );
+  }
+
+  Widget _mail() {
+    return _listTile(
+      title: 'Mail',
+      subtitle: store.email!,
+      icon: Icons.mail,
       onTap: () => UrlUtils.mailto(store.email!),
-      leading: const Icon(Icons.mail),
-      trailing: const Icon(Icons.chevron_right),
     );
   }
 
-  ListTile _phone() {
-    return ListTile(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Text('Telefon:'),
-          Text(store.phone),
-        ],
-      ),
+  Widget _phone() {
+    return _listTile(
+      title: 'Telefon',
+      subtitle: store.phone,
+      icon: Icons.phone,
       onTap: () => UrlUtils.call(store.phone),
-      leading: const Icon(Icons.phone),
-      trailing: const Icon(Icons.chevron_right),
     );
   }
 
-  ListTile _address() {
-    return ListTile(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(child: Text(store.address)),
-        ],
-      ),
-      onTap: () => UrlUtils.openMap(store.chain, store.address),
-      leading: const Icon(Icons.map),
-      trailing: const Icon(Icons.chevron_right),
+  Widget _address() {
+    return _listTile(
+      title: 'Adresse',
+      subtitle: store.address,
+      icon: Icons.map,
+      onTap: () => UrlUtils.openMap(store.chain, store.name),
     );
   }
 
@@ -59,10 +57,6 @@ class StoreInformation extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Text(
-            '${store.name} ${store.chain}',
-            style: const TextStyle(fontSize: 24),
-          ),
           const Whitespace.height(PaddingSize.large),
           SizedBox(
             height: 200,

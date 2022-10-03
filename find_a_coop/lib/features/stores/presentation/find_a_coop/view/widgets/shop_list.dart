@@ -28,6 +28,7 @@ class StoreList extends StatelessWidget {
           ),
           title: Text('${store.chain} - ${store.name}'),
           subtitle: Text(store.address),
+          trailing: store.distance > 0 ? Text('${store.distance} m') : null,
           onTap: () {
             final storeName = '${store.name}-${store.storeId}';
             final path = '/${BaseRoutes.butikker}/${store.chain}/$storeName'.toLowerCase();

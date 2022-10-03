@@ -20,10 +20,6 @@ class FindACoopView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.findACoopAppBarTitle)),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.lightbulb),
-      ),
       body: Column(
         children: [
           Padding(
