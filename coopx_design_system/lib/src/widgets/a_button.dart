@@ -1,6 +1,7 @@
-import 'package:coopx_design_system/hauglid_design_system.dart';
+import 'package:coopx_design_system/coopx_design_system.dart';
 import 'package:flutter/material.dart';
 
+// TODO: Replace colors with theme colors.
 class AButton extends StatelessWidget {
   const AButton({
     Key? key,
@@ -40,7 +41,7 @@ class AButton extends StatelessWidget {
         alignment: Alignment.center,
         decoration: !outline
             ? BoxDecoration(
-                color: !disabled ? Theme.of(context).primaryColor : AColor.grey,
+                color: !disabled ? Theme.of(context).primaryColor : Theme.of(context).disabledColor,
                 borderRadius: BorderRadius.circular(RadiusSize.small),
               )
             : BoxDecoration(
@@ -56,7 +57,7 @@ class AButton extends StatelessWidget {
                 children: [
                   if (leading != null) ...[
                     leading!,
-                    const SizedBox(width: 5),
+                    const SizedBox(width: RadiusSize.small),
                   ],
                   Text(
                     title,

@@ -35,7 +35,7 @@ class ACard extends StatelessWidget {
           borderRadius: BorderRadius.circular(radiusSize),
         ),
         decoration: BoxDecoration(
-          color: color ?? Colors.white,
+          color: color ?? Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.circular(radiusSize),
         ),
         child: InkWell(

@@ -35,6 +35,7 @@ class AInputField extends StatelessWidget {
         hintText: placeholder,
         contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
         filled: true,
+        fillColor: Theme.of(context).canvasColor,
         prefixIcon: leading,
         suffixIcon: trailing != null
             ? GestureDetector(
@@ -42,6 +43,18 @@ class AInputField extends StatelessWidget {
                 child: trailing,
               )
             : null,
+        border: circularBorder.copyWith(
+          borderSide: BorderSide(color: Theme.of(context).dividerColor),
+        ),
+        errorBorder: circularBorder.copyWith(
+          borderSide: BorderSide(color: Theme.of(context).errorColor),
+        ),
+        focusedBorder: circularBorder.copyWith(
+          borderSide: BorderSide(color: Theme.of(context).dividerColor),
+        ),
+        enabledBorder: circularBorder.copyWith(
+          borderSide: BorderSide(color: Theme.of(context).dividerColor),
+        ),
       ),
     );
   }

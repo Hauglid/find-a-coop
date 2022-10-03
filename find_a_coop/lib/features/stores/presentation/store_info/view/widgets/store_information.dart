@@ -1,4 +1,4 @@
-import 'package:coopx_design_system/hauglid_design_system.dart';
+import 'package:coopx_design_system/coopx_design_system.dart';
 import 'package:find_a_coop/features/stores/models/opening_hours.dart';
 import 'package:find_a_coop/features/stores/models/store.dart';
 import 'package:find_a_coop/features/stores/presentation/widgets/store_map.dart';

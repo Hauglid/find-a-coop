@@ -1,4 +1,4 @@
-import 'package:coopx_design_system/hauglid_design_system.dart';
+import 'package:coopx_design_system/coopx_design_system.dart';
 import 'package:find_a_coop/features/stores/presentation/find_a_coop/cubit/stores_cubit.dart';
 import 'package:find_a_coop/features/stores/presentation/find_a_coop/view/widgets/shop_list.dart';
 import 'package:find_a_coop/features/stores/stores.dart';
@@ -19,11 +19,16 @@ class FindACoopView extends StatelessWidget {
     final l10n = context.l10n;
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.findACoopAppBarTitle)),
+      appBar: AppBar(
+        title: Text(l10n.findACoopAppBarTitle),
+        centerTitle: true,
+        scrolledUnderElevation: 0,
+      ),
       body: Column(
         children: [
-          Padding(
+          Container(
             padding: const EdgeInsets.all(PaddingSize.large),
+            color: Theme.of(context).canvasColor,
             child: AInputField(
               controller: controller.searchTextEditingController,
               leading: const Icon(Icons.search),
