@@ -1,3 +1,4 @@
+import 'package:coopx_design_system/coopx_design_system.dart';
 import 'package:find_a_coop/features/stores/models/store.dart';
 import 'package:find_a_coop/features/stores/presentation/store_info/cubit/store_cubit.dart';
 import 'package:find_a_coop/features/stores/presentation/store_info/view/store_info_page.dart';
@@ -16,7 +17,7 @@ class StoreInfoView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(controller.storeName),
+        title: AText.subheading(controller.storeName),
       ),
       body: BlocConsumer<StoreCubit, StoreState>(
         listener: (context, state) {

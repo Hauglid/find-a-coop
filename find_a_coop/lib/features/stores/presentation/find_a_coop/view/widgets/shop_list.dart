@@ -26,9 +26,10 @@ class StoreList extends StatelessWidget {
             side: BorderSide(color: Theme.of(context).dividerColor),
             borderRadius: BorderRadius.circular(RadiusSize.large),
           ),
-          title: Text('${store.chain} - ${store.name}'),
-          subtitle: Text(store.address),
-          trailing: store.distance > 0 ? Text('${store.distance} m') : null,
+          title: AText.body('${store.chain} - ${store.name}'),
+          subtitle: AText.caption(store.address),
+          leading: SizedBox(width: 40, child: Center(child: ChainImage(chainId: store.chainId))),
+          trailing: store.distance > 0 ? AText.body('${store.distance} m') : null,
           onTap: () {
             final storeName = '${store.name}-${store.storeId}';
             final path = '/${BaseRoutes.butikker}/${store.chain}/$storeName'.toLowerCase();

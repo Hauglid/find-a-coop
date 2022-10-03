@@ -20,7 +20,7 @@ class FindACoopView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.findACoopAppBarTitle),
+        title: AText.headline(l10n.findACoopAppBarTitle),
         centerTitle: true,
         scrolledUnderElevation: 0,
       ),

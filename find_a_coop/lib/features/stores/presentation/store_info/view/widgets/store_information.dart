@@ -20,8 +20,8 @@ class StoreInformation extends StatelessWidget {
       leading: Icon(icon),
       trailing: const Icon(Icons.chevron_right),
       onTap: onTap,
-      title: Text(title),
-      subtitle: Text(subtitle),
+      title: AText.body(title),
+      subtitle: AText.caption(subtitle),
     );
   }
 
@@ -71,11 +71,8 @@ class StoreInformation extends StatelessWidget {
               child: ListView(
                 shrinkWrap: true,
                 children: [
-                  const Text(
-                    'Åpningstider de neste 7 dagene',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  for (OpeningHours hours in store.openingHours) Text('${hours.day} ${hours.openString}'),
+                  AText.body('Åpningstider de neste 7 dagene'),
+                  for (OpeningHours hours in store.openingHours) AText.caption('${hours.day} ${hours.openString}'),
                 ],
               ),
             ),
