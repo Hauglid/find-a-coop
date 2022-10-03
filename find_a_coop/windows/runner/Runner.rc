@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example.verygoodcore.find-a-coop" "\0"
+            VALUE "CompanyName", "tech.hauglid.find-a-coop" "\0"
             VALUE "FileDescription", "find_a_coop" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "find_a_coop" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 com.example.verygoodcore.find-a-coop. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 tech.hauglid.find-a-coop. All rights reserved." "\0"
             VALUE "OriginalFilename", "find_a_coop.exe" "\0"
             VALUE "ProductName", "Find A Coop" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

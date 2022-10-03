@@ -1,7 +1,6 @@
 import 'package:find_a_coop/features/stores/models/store.dart';
 import 'package:find_a_coop/features/stores/presentation/store/cubit/store_cubit.dart';
 import 'package:find_a_coop/features/stores/presentation/store/view/widgets/store_information.dart';
-import 'package:find_a_coop/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

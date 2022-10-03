@@ -1,4 +1,7 @@
+import 'package:coopx_design_system/hauglid_design_system.dart';
+import 'package:find_a_coop/features/stores/models/opening_hours.dart';
 import 'package:find_a_coop/features/stores/models/store.dart';
+import 'package:find_a_coop/features/stores/presentation/widgets/store_map.dart';
 import 'package:find_a_coop/utils/url_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +19,7 @@ class StoreInformation extends StatelessWidget {
           Text(store.email!),
         ],
       ),
-      onTap: () => UrlUtils.mailto(store.phone),
+      onTap: () => UrlUtils.mailto(store.email!),
       leading: const Icon(Icons.mail),
       trailing: const Icon(Icons.chevron_right),
     );
@@ -56,9 +59,33 @@ class StoreInformation extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Text(store.name),
-          Text(store.chain),
-          const Spacer(),
+          Text(
+            '${store.name} ${store.chain}',
+            style: const TextStyle(fontSize: 24),
+          ),
+          const Whitespace.height(PaddingSize.large),
+          SizedBox(
+            height: 200,
+            child: StoreMap(
+              latitude: store.lat,
+              longitude: store.lng,
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(PaddingSize.large),
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  const Text(
+                    'Åpningstider de neste 7 dagene',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  for (OpeningHours hours in store.openingHours) Text('${hours.day} ${hours.openString}'),
+                ],
+              ),
+            ),
+          ),
           _address(),
           _phone(),
           if (store.email != null) _mail(),
