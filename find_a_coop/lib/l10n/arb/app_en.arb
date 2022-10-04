@@ -1,4 +1,9 @@
 {
   "@@locale": "en",
-  "findACoopAppBarTitle": "Find a Coop"
+  "findACoopAppBarTitle": "Find a Coop",
+  "maybe": "Maybe",
+  "no": "No",
+  "yes": "Yes",
+  "location": "Location",
+  "locationOpenAppSettings": "Do you want to open the location settings?"
 }

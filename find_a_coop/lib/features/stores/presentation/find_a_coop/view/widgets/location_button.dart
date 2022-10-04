@@ -1,4 +1,6 @@
+import 'package:find_a_coop/l10n/l10n.dart';
 import 'package:find_a_coop/utils/log_utils.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -40,11 +42,36 @@ class _LocationButtonState extends State<LocationButton> {
   }
 
   Future<void> _onPressed() async {
-    if (locationPermission == LocationPermission.unableToDetermine) {
+    if (locationPermission == LocationPermission.unableToDetermine || locationPermission == LocationPermission.denied) {
       final locationPermission = await Geolocator.requestPermission();
       logInfo('Got location permission: $locationPermission');
       setLocationPermissionState(locationPermission);
+    } else {
+      showLocationSettingsDialog();
     }
+  }
+
+  void showLocationSettingsDialog() {
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) => CupertinoAlertDialog(
+        title: Text(context.l10n.location),
+        content: Text(context.l10n.locationOpenAppSettings),
+        actions: <CupertinoDialogAction>[
+          CupertinoDialogAction(
+            isDefaultAction: true,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text(context.l10n.no),
+          ),
+          CupertinoDialogAction(
+            onPressed: Geolocator.openLocationSettings,
+            child: Text(context.l10n.yes),
+          ),
+        ],
+      ),
+    );
   }
 
   @override

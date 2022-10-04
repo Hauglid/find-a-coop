@@ -1,4 +1,9 @@
 {
   "@@locale": "nb",
-  "findACoopAppBarTitle": "Finn en Coop"
+  "findACoopAppBarTitle": "Finn en Coop",
+  "maybe": "Kanskje",
+  "no": "Nei",
+  "yes": "Ja",
+  "location": "Lokasjon",
+  "locationOpenAppSettings": "Vil du åpne innstillingene for lokasjon?"
 }
