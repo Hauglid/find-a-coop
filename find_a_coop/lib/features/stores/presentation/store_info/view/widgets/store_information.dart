@@ -1,7 +1,6 @@
 import 'package:coopx_design_system/coopx_design_system.dart';
 import 'package:find_a_coop/features/stores/models/store.dart';
 import 'package:find_a_coop/features/stores/presentation/store_info/view/widgets/widgets.dart';
-import 'package:find_a_coop/features/stores/presentation/widgets/store_map.dart';
 import 'package:find_a_coop/l10n/l10n.dart';
 import 'package:find_a_coop/utils/url_utils.dart';
 import 'package:flutter/material.dart';

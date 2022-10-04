@@ -20,8 +20,6 @@ class StoreMap extends StatefulWidget {
 }
 
 class _StoreMapState extends State<StoreMap> {
-  Set<Marker> markers = {};
-
   CameraPosition get initialCameraPosition => CameraPosition(
         target: latlng,
         zoom: widget.zoom,
@@ -39,7 +37,13 @@ class _StoreMapState extends State<StoreMap> {
   Widget build(BuildContext context) {
     return AbsorbPointer(
       child: GoogleMap(
-        markers: markers,
+        markers: {
+          Marker(
+            position: latlng,
+            icon: BitmapDescriptor.defaultMarkerWithHue(245),
+            markerId: MarkerId('${widget.latitude}-${widget.longitude}'),
+          )
+        },
         initialCameraPosition: initialCameraPosition,
         myLocationButtonEnabled: false,
         zoomControlsEnabled: false,

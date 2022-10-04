@@ -28,7 +28,7 @@ class StoreList extends StatelessWidget {
             borderRadius: BorderRadius.circular(RadiusSize.large),
           ),
           title: AText.body('${store.chain} - ${store.name}'),
-          subtitle: AText.caption(store.address),
+          subtitle: AText.caption(store.openingHoursToday),
           leading: SizedBox(width: 40, child: Center(child: ChainImage(chainId: store.chainId))),
           trailing: distance > 0 ? AText.caption('$distance m') : null,
           onTap: () {
