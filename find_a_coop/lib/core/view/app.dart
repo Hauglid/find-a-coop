@@ -1,3 +1,4 @@
+import 'package:coopx_design_system/coopx_design_system.dart';
 import 'package:find_a_coop/core/router/my_router.dart';
 import 'package:find_a_coop/l10n/l10n.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +31,8 @@ class App extends StatelessWidget {
 ThemeData themeData(Brightness mode) => ThemeData.from(
       colorScheme: ColorScheme.fromSeed(
         brightness: mode,
-        seedColor: primaryColor,
-        primary: mode == Brightness.light ? primaryColor : null,
+        seedColor: AColor.primary,
+        primary: mode == Brightness.light ? AColor.primary : null,
       ),
       useMaterial3: true,
     ).copyWith(visualDensity: VisualDensity.standard);
-
-const Color primaryColor = Color(0xFF003366);
