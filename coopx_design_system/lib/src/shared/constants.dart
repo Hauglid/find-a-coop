@@ -1,10 +1,11 @@
 class PaddingSize {
   PaddingSize._();
 
-  static const double large = 20;
+  static const double xsmall = 4;
+  static const double small = 8;
   static const double medium = 12;
   static const double regular = 16;
-  static const double small = 8;
+  static const double large = 20;
   static const double xlarge = 32;
   static const double xxlarge = 40;
 }
