@@ -1,6 +1,5 @@
 # Find A Coop
 
-![coverage][coverage_badge]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
 
@@ -15,7 +14,7 @@ A Very Good Project created by Very Good CLI.
 This project contains 3 flavors:
 
 - development
-- staging
+- staging [Not in use]
 - production
 
 To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
@@ -31,29 +30,27 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-_\*Find A Coop works on iOS, Android, Web, and Windows._
+_\*Find A Coop works on iOS, Android._
 
 ---
 
-## Running Tests 🧪
+## CoopX Design System
 
-To run all unit and widget tests use the following command:
+This project uses the package coopx_design_system. This must be in the same root folder.
+It should be there if you have downloaded the project from github.
 
-```sh
-$ flutter test --coverage --test-randomize-ordering-seed random
-```
+## Google Maps
 
-To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
+Add your Google Maps Api Key to both iOS and Android
 
-```sh
-# Generate Coverage Report
-$ genhtml coverage/lcov.info -o coverage/
+### Android
 
-# Open Coverage Report
-$ open coverage/index.html
-```
+Add file key.properties to your android folder with the following property
+"keys.mapsApi = [your key without brackets]"
 
----
+### iOS
+
+In Build Settings under User-Defined add the key to MAPS_API_KEY
 
 ## Working with Translations 🌐
 
@@ -111,7 +108,7 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
     <key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
-		<string>es</string>
+		<string>nb</string>
 	</array>
 
     ...
@@ -154,7 +151,6 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
 }
 ```
 
-[coverage_badge]: coverage_badge.svg
 [flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
 [internationalization_link]: https://flutter.dev/docs/development/accessibility-and-localization/internationalization
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
