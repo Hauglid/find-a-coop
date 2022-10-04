@@ -1,0 +1,9 @@
+flutter_icons:
+  android: false
+  ios: true
+  image_path: "assets/launcher_icon/coop-logo-ios-dev.png"
+  web:
+    generate: true
+    image_path: "assets/launcher_icon/coop-logo-white-dev.png"
+    background_color: "#003366"
+    theme_color: "#ffffff"
