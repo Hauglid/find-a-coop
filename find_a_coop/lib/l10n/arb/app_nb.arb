@@ -1,9 +1,13 @@
 {
   "@@locale": "nb",
+  "address": "Adresse",
   "findACoopAppBarTitle": "Finn en Coop",
+  "location": "Lokasjon",
+  "locationOpenAppSettings": "Vil du åpne innstillingene for lokasjon?",
+  "email": "Email",
   "maybe": "Kanskje",
   "no": "Nei",
-  "yes": "Ja",
-  "location": "Lokasjon",
-  "locationOpenAppSettings": "Vil du åpne innstillingene for lokasjon?"
+  "openingHoursNext7Days": "Åpningstider de neste 7 dagene",
+  "phone": "Telefon",
+  "yes": "Ja"
 }

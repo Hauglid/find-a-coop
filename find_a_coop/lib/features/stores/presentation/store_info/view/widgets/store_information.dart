@@ -2,6 +2,7 @@ import 'package:coopx_design_system/coopx_design_system.dart';
 import 'package:find_a_coop/features/stores/models/opening_hours.dart';
 import 'package:find_a_coop/features/stores/models/store.dart';
 import 'package:find_a_coop/features/stores/presentation/widgets/store_map.dart';
+import 'package:find_a_coop/l10n/l10n.dart';
 import 'package:find_a_coop/utils/url_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -25,27 +26,27 @@ class StoreInformation extends StatelessWidget {
     );
   }
 
-  Widget _mail() {
+  Widget _email(BuildContext context) {
     return _listTile(
-      title: 'Mail',
+      title: context.l10n.email,
       subtitle: store.email!,
       icon: Icons.mail,
       onTap: () => UrlUtils.mailto(store.email!),
     );
   }
 
-  Widget _phone() {
+  Widget _phone(BuildContext context) {
     return _listTile(
-      title: 'Telefon',
+      title: context.l10n.phone,
       subtitle: store.phone,
       icon: Icons.phone,
       onTap: () => UrlUtils.call(store.phone),
     );
   }
 
-  Widget _address() {
+  Widget _address(BuildContext context) {
     return _listTile(
-      title: 'Adresse',
+      title: context.l10n.address,
       subtitle: store.address,
       icon: Icons.map,
       onTap: () => UrlUtils.openMap(store.chain, store.name),
@@ -71,15 +72,15 @@ class StoreInformation extends StatelessWidget {
               child: ListView(
                 shrinkWrap: true,
                 children: [
-                  AText.body('Åpningstider de neste 7 dagene'),
+                  AText.body(context.l10n.openingHoursNext7Days),
                   for (OpeningHours hours in store.openingHours) AText.caption('${hours.day} ${hours.openString}'),
                 ],
               ),
             ),
           ),
-          _address(),
-          _phone(),
-          if (store.email != null) _mail(),
+          _address(context),
+          _phone(context),
+          if (store.email != null) _email(context),
         ],
       ),
     );

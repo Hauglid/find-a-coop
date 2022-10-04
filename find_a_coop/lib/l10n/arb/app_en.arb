@@ -1,9 +1,13 @@
 {
   "@@locale": "en",
+  "address": "Address",
   "findACoopAppBarTitle": "Find a Coop",
+  "location": "Location",
+  "locationOpenAppSettings": "Do you want to open the location settings?",
+  "email": "Email",
   "maybe": "Maybe",
   "no": "No",
-  "yes": "Yes",
-  "location": "Location",
-  "locationOpenAppSettings": "Do you want to open the location settings?"
+  "openingHoursNext7Days": "Opening hours for the next 7 days",
+  "phone": "Phone",
+  "yes": "Yes"
 }
