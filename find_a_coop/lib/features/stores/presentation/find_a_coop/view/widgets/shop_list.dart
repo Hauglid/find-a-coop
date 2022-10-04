@@ -32,7 +32,7 @@ class StoreList extends StatelessWidget {
           leading: SizedBox(width: 40, child: Center(child: ChainImage(chainId: store.chainId))),
           trailing: distance > 0 ? AText.caption('$distance m') : null,
           onTap: () {
-            final storeName = '${store.name}-${store.storeId}';
+            final storeName = Uri.encodeComponent('${store.name}-${store.storeId}');
             final path = '/${BaseRoutes.butikker}/${store.chain}/$storeName'.toLowerCase();
             context.go(path);
           },
