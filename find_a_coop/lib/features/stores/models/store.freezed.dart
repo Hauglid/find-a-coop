@@ -24,7 +24,7 @@ mixin _$Store {
   bool get openNow => throw _privateConstructorUsedError;
   double get lat => throw _privateConstructorUsedError;
   double get lng => throw _privateConstructorUsedError;
-  int get distance => throw _privateConstructorUsedError;
+  double get distance => throw _privateConstructorUsedError;
   List<OpeningHours> get openingHours => throw _privateConstructorUsedError;
   List<OpeningHours> get specialOpeningHours =>
       throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ abstract class $StoreCopyWith<$Res> {
       bool openNow,
       double lat,
       double lng,
-      int distance,
+      double distance,
       List<OpeningHours> openingHours,
       List<OpeningHours> specialOpeningHours,
       List<String> inStoreServices,
@@ -131,7 +131,7 @@ class _$StoreCopyWithImpl<$Res> implements $StoreCopyWith<$Res> {
       distance: distance == freezed
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       openingHours: openingHours == freezed
           ? _value.openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
@@ -214,7 +214,7 @@ abstract class _$$_StoreCopyWith<$Res> implements $StoreCopyWith<$Res> {
       bool openNow,
       double lat,
       double lng,
-      int distance,
+      double distance,
       List<OpeningHours> openingHours,
       List<OpeningHours> specialOpeningHours,
       List<String> inStoreServices,
@@ -288,7 +288,7 @@ class __$$_StoreCopyWithImpl<$Res> extends _$StoreCopyWithImpl<$Res>
       distance: distance == freezed
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       openingHours: openingHours == freezed
           ? _value._openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
@@ -404,7 +404,7 @@ class _$_Store extends _Store {
   @override
   final double lng;
   @override
-  final int distance;
+  final double distance;
   final List<OpeningHours> _openingHours;
   @override
   List<OpeningHours> get openingHours {
@@ -545,7 +545,7 @@ abstract class _Store extends Store {
       required final bool openNow,
       required final double lat,
       required final double lng,
-      required final int distance,
+      required final double distance,
       required final List<OpeningHours> openingHours,
       required final List<OpeningHours> specialOpeningHours,
       required final List<String> inStoreServices,
@@ -576,7 +576,7 @@ abstract class _Store extends Store {
   @override
   double get lng;
   @override
-  int get distance;
+  double get distance;
   @override
   List<OpeningHours> get openingHours;
   @override

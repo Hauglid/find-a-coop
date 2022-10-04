@@ -11,7 +11,7 @@ _$_Store _$$_StoreFromJson(Map<String, dynamic> json) => _$_Store(
       openNow: json['OpenNow'] as bool,
       lat: (json['Lat'] as num).toDouble(),
       lng: (json['Lng'] as num).toDouble(),
-      distance: json['Distance'] as int,
+      distance: (json['Distance'] as num).toDouble(),
       openingHours: (json['OpeningHours'] as List<dynamic>)
           .map((e) => OpeningHours.fromJson(e as Map<String, dynamic>))
           .toList(),

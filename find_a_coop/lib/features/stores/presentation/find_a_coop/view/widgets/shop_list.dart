@@ -20,6 +20,7 @@ class StoreList extends StatelessWidget {
       itemCount: shops.length,
       itemBuilder: (context, index) {
         final store = shops[index];
+        final int distance = store.distance.toInt();
 
         return ListTile(
           shape: RoundedRectangleBorder(
@@ -29,7 +30,7 @@ class StoreList extends StatelessWidget {
           title: AText.body('${store.chain} - ${store.name}'),
           subtitle: AText.caption(store.address),
           leading: SizedBox(width: 40, child: Center(child: ChainImage(chainId: store.chainId))),
-          trailing: store.distance > 0 ? AText.body('${store.distance} m') : null,
+          trailing: distance > 0 ? AText.caption('$distance m') : null,
           onTap: () {
             final storeName = '${store.name}-${store.storeId}';
             final path = '/${BaseRoutes.butikker}/${store.chain}/$storeName'.toLowerCase();

@@ -1,6 +1,8 @@
 import 'package:find_a_coop/features/stores/models/store.dart';
 import 'package:find_a_coop/features/stores/models/stores_info.dart';
 import 'package:find_a_coop/services/http_service.dart';
+import 'package:find_a_coop/utils/log_utils.dart';
+import 'package:geolocator/geolocator.dart';
 
 class StoresApi {
   static final HttpService _service = HttpService();
@@ -20,10 +22,20 @@ class StoresApi {
   }
 
   static Future<List<Store>> getStoreWithQuery({required String query}) async {
+    final Map<String, String> locationQueryParameters = {};
+
+    final position = await getPosition();
+    if (position != null) {
+      locationQueryParameters.addAll({
+        'locationLat': position.latitude.toString(),
+        'locationLon': position.longitude.toString(),
+      });
+    }
+
     final response = await _service.get(
       baseUrl: baseUrl,
       endpoint: StoreEndpoints.searchStores,
-      extraQueryParameters: {'searchInput': query},
+      extraQueryParameters: {'searchInput': query, ...locationQueryParameters},
     );
     if (response.statusCode == 200) {
       final jsonData = jsonDecodeUtf8(response.bodyBytes) as Map<String, dynamic>;
@@ -31,6 +43,17 @@ class StoresApi {
       return storesInfo.stores;
     } else {
       return [];
+    }
+  }
+
+  static Future<Position?> getPosition() async {
+    // Should probably check permission instead of try/catch
+    try {
+      final Position position = await Geolocator.getCurrentPosition();
+      return position;
+    } catch (e, s) {
+      logError(e.toString(), stackTrace: s);
+      return null;
     }
   }
 }

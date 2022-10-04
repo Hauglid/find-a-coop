@@ -1,3 +1,4 @@
+import 'package:find_a_coop/utils/log_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -14,6 +15,7 @@ class _LocationButtonState extends State<LocationButton> {
   @override
   void initState() {
     super.initState();
+    checkLocationPermission();
   }
 
   Future<void> checkLocationPermission() async {
@@ -40,6 +42,7 @@ class _LocationButtonState extends State<LocationButton> {
   Future<void> _onPressed() async {
     if (locationPermission == LocationPermission.unableToDetermine) {
       final locationPermission = await Geolocator.requestPermission();
+      logInfo('Got location permission: $locationPermission');
       setLocationPermissionState(locationPermission);
     }
   }

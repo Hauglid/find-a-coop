@@ -302,6 +302,8 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   $Res call({Store store});
+
+  $StoreCopyWith<$Res> get store;
 }
 
 /// @nodoc
@@ -323,6 +325,13 @@ class __$$_SuccessCopyWithImpl<$Res> extends _$StoreStateCopyWithImpl<$Res>
           : store // ignore: cast_nullable_to_non_nullable
               as Store,
     ));
+  }
+
+  @override
+  $StoreCopyWith<$Res> get store {
+    return $StoreCopyWith<$Res>(_value.store, (value) {
+      return _then(_value.copyWith(store: value));
+    });
   }
 }
 

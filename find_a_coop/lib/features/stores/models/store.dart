@@ -10,7 +10,7 @@ class Store with _$Store {
     required bool openNow,
     required double lat,
     required double lng,
-    required int distance,
+    required double distance,
     required List<OpeningHours> openingHours,
     required List<OpeningHours> specialOpeningHours,
     required List<String> inStoreServices,

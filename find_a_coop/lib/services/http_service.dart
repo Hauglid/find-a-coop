@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:find_a_coop/utils/log_utils.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart';
 
@@ -10,7 +11,7 @@ class HttpService {
   Future<Response> get({
     required String baseUrl,
     required String endpoint,
-    Map<String, dynamic> extraQueryParameters = const {},
+    Map<String, String> extraQueryParameters = const {},
   }) async {
     try {
       final queryParameters = extraQueryParameters;
@@ -30,6 +31,7 @@ class HttpService {
       log('Stopwatch: /$endpoint: ${stopwatch.elapsed.inMilliseconds / 1000} inSeconds');
       return response;
     } catch (e) {
+      logError(e.toString());
       throw const NoConnectionFailure();
     }
   }
